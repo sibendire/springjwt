@@ -1,10 +1,13 @@
 package com.securityapp.application.apprepo;
 
 import com.securityapp.application.appentity.AppUser;
+import com.securityapp.application.appentity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AppUserRepo extends JpaRepository<AppUser,Long> {
-  AppUser findByUserName(String username);
-  AppUser delete(String username);
+import java.util.List;
 
+public interface AppUserRepo extends JpaRepository<AppUser, Long> {
+  void deleteByUsername(String username);
+  AppUser findByUsername(String username);
+  List<AppUser> findByRolesContaining(Role role);
 }

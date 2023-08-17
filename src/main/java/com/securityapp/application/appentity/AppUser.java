@@ -19,9 +19,11 @@ public class AppUser {
     @GeneratedValue(strategy = AUTO)
     private long id;
     private String name;
-    private String userName;
+    private String username;  // Changed from 'userName'
+    private String email;
     private String password;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<>();
-    
+
 }
+

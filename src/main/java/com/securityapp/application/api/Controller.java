@@ -4,9 +4,7 @@ import com.securityapp.application.appentity.AppUser;
 import com.securityapp.application.appservice.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,4 +18,10 @@ public class Controller {
 
         return ResponseEntity.ok().body(appUserService.getAppUser());
     }
+    @PostMapping("/app/save")
+    public ResponseEntity <AppUser> saveAppUser(@RequestBody  AppUser appUser){
+        return ResponseEntity.ok().body(appUserService.saveAppUser(appUser));
+
+    }
+
 }
