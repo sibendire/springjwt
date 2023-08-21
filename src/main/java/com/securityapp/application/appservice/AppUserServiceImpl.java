@@ -57,8 +57,6 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
 
-
-
     @Override
     public void deleteAppUser(String username) {
         log.info("deleting app user {}", username);
@@ -75,6 +73,13 @@ public class AppUserServiceImpl implements AppUserService {
                 user.getRoles().remove(role);
             }
         }
+    }
+
+    @Override
+    public void addRolesToAppUser(String role) {
+        Role role1 = appRoleRepo.findByName(role);
+        appUserRepo.save(new AppUser());
+
     }
 
 }
