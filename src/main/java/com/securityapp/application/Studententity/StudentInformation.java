@@ -3,6 +3,7 @@ package com.securityapp.application.Studententity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.List;
 
 
 @Entity
@@ -279,7 +280,7 @@ public class StudentInformation {
         this.motherPhone = motherPhone;
     }
     @OneToMany (mappedBy = "student",cascade = CascadeType.ALL)
-    private List<Address>addressList;
+    private List<Address> addressList;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "classroom_id",referencedColumnName = "id")
     private Classroom classroom;

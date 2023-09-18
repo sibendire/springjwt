@@ -2,25 +2,38 @@ package com.securityapp.application.studentcontroller;
 
 import com.securityapp.application.Studententity.StudentInformation;
 import com.securityapp.application.studentservice.StudentInformationService;
-import jakarta.persistence.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Entity
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/students")
 public class StudentInformationController {
     @Autowired
     private StudentInformationService studentInformationService;
-    @PostMapping("/api/save")
-    public String  saveStudent(StudentInformation studentInformation) {
-        studentInformationService.saveStudent(studentInformation);
-        return"";
 
+    @PostMapping("/save")
+    public ResponseEntity<StudentInformation> saveStudent(@RequestBody StudentInformation studentInformation) {
+        StudentInformation savedStudent = studentInformationService.saveStudent(studentInformation);
+        return new ResponseEntity<>(savedStudent, HttpStatus.CREATED);
     }
-    @GetMapping("/list_students")
-    public ResponseEntity<StudentInformation> getAllStudents(StudentInformation studentInformation){
-        return ResponseEntity.ok(studentInformationService.findAllStudents(studentInformation));
+
+    @GetMapping("/list")
+    public ResponseEntity<List<StudentInformation>> getAllStudents() {
+        List<StudentInformation> students = studentInformationService.getAllStudents();
+        return new ResponseEntity<>(students, HttpStatus.OK);
     }
-    public ResponseEntity<StudentInformation>  get
+
+    @GetMapping("/{id}")
+    public ResponseEntity<StudentInformation> getStudentById(@PathVariable long id) {
+        StudentInformation student = studentInformationService.getStudentById(id);
+        if (student != null) {
+            return new ResponseEntity<>(student, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
