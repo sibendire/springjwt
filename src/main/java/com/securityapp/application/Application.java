@@ -17,7 +17,8 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    /**@Bean
+    /**
+     * @Bean
     CommandLineRunner run(AppUserService appUserService) {
         return args -> {
             Role roleUser = appUserService.saveRole(new Role(null, "ROLE_USER"));

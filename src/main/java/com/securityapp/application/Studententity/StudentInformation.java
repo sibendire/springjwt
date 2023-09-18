@@ -9,10 +9,14 @@ import java.util.List;
 @Entity
 @Table(name = "Student")
 public class StudentInformation {
+   // @OneToMany(mappedBy = "studentInformation")
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(generator = "UUID")
+    /// @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
+
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
-    private long id;
+    private Long id;
     private String studentFirstName;
     private String studentMidName;
     private String studentLastName;
@@ -71,11 +75,11 @@ public class StudentInformation {
         this.motherPhone = motherPhone;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -279,9 +283,10 @@ public class StudentInformation {
     public void setMotherPhone(String motherPhone) {
         this.motherPhone = motherPhone;
     }
-    @OneToMany (mappedBy = "student",cascade = CascadeType.ALL)
-    private List<Address> addressList;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "classroom_id",referencedColumnName = "id")
-    private Classroom classroom;
+
+//    //  @OneToMany (mappedBy = "student",cascade = CascadeType.ALL)
+//    private List<Address> addressList;
+//    // @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "classroom_id", referencedColumnName = "id")
+//    private Classroom classroom;
 }

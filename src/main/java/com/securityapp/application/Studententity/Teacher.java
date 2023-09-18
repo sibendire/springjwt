@@ -28,7 +28,7 @@ public class Teacher {
     private Date createdDate;
     private Date updatedDate;
 
-    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+   // @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     private List<Classroom> classroomList;
 
     public Teacher() {
