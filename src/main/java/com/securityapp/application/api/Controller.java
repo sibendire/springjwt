@@ -36,10 +36,10 @@ public class Controller {
     public ResponseEntity<Role> saveRole(@RequestBody Role role) {
         ServletUriComponentsBuilder servletUriComponentsBuilder = null;
         URI url = URI.create(servletUriComponentsBuilder.fromCurrentContextPath().path("/api/save/role").toString());
-        return ResponseEntity.created(url).body(appUserService.saveRole(role));
+         return ResponseEntity.created(url).body(appUserService.saveRole(role));
     }
 
-    @PostMapping("/addrole")
+    @PostMapping("/add_role")
     public void add(@RequestBody Role role) {
         appUserService.addRolesToAppUser(String.valueOf(role));
     }
