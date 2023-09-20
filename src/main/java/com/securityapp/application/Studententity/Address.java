@@ -5,7 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Address {
-   // @ManyToOne
+    @ManyToOne
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
@@ -23,7 +23,7 @@ public class Address {
         this.zipCode = zipCode;
     }
 
-   // @ManyToOne(fetch = FetchType.LAZY)
-   // @JoinColumn(name = "student_id",referencedColumnName = "id")
+   @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id",referencedColumnName = "id")
     private StudentInformation studentInformation;
 }

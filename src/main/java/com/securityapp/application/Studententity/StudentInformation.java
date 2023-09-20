@@ -13,7 +13,7 @@ public class StudentInformation {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@GeneratedValue(generator = "UUID")
-    /// @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
+     @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
 
     @Id
     private Long id;
@@ -284,9 +284,9 @@ public class StudentInformation {
         this.motherPhone = motherPhone;
     }
 
-//    //  @OneToMany (mappedBy = "student",cascade = CascadeType.ALL)
-//    private List<Address> addressList;
-//    // @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "classroom_id", referencedColumnName = "id")
-//    private Classroom classroom;
+    @OneToMany (mappedBy = "studentInformation",cascade = CascadeType.ALL)
+    private List<Address> addressList;
+     @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "classroom_id", referencedColumnName = "id")
+   private Classroom classroom;
 }

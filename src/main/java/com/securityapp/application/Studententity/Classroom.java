@@ -20,9 +20,9 @@ public class Classroom {
         this.description = description;
     }
 
-   // @OneToMany(mappedBy = "classroom",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "classroom",cascade = CascadeType.ALL)
     private List<StudentInformation> studentInformations;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "teacher_id",referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teacher_id",referencedColumnName = "id")
     private Teacher teacher;
 }
