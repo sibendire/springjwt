@@ -13,4 +13,5 @@ public interface StudentInformationService {
     List<StudentInformation> getAllStudents();
 
     StudentInformation getStudentById(long id);
+    <StudentPhoto> StudentPhoto getStudentPhoto(StudentPhoto studentPhoto);
 }

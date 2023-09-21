@@ -9,11 +9,11 @@ import java.util.List;
 @Entity
 @Table(name = "Student")
 public class StudentInformation {
-   // @OneToMany(mappedBy = "studentInformation")
+    // @OneToMany(mappedBy = "studentInformation")
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@GeneratedValue(generator = "UUID")
-     @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
 
     @Id
     private Long id;
@@ -23,30 +23,20 @@ public class StudentInformation {
     private String studentDateOfBirth;
     private String studentNationalIdentificationNumberNIN;
     private String studentNationalIdentificationCardNumber;
-    private String studentSex;
-    private String studentLevelOfEducation;
+    private String studentGender;
+    private String studentClass;
     private String studentHealthRecord;
+    private String studentPhoto;
     private String studentPhoneNumber;
     private String studentHomeAddress;
     private String studentSubCounty;
     private String studentDistrict;
-    private String studentFatherName;
-    private String fatherNationalIdentificationNumber;
-    private String fatherPhone;
-    private String fatherEmail;
-    private String fatherAddress;
-    private String fatherOccupation;
-    private String studentMotherName;
-    private String motherNationalIdentificationNumber;
-    private String motherEmail;
-    private String motherAddress;
-    private String motherOccupation;
-    private String motherPhone;
+
 
     public StudentInformation() {
     }
 
-    public StudentInformation(long id, String studentFirstName, String studentMidName, String studentLastName, String studentDateOfBirth, String studentNationalIdentificationNumberNIN, String studentNationalIdentificationCardNumber, String studentSex, String studentLevelOfEducation, String studentHealthRecord, String studentPhoneNumber, String studentHomeAddress, String studentSubCounty, String studentDistrict, String studentFatherName, String fatherNationalIdentificationNumber, String fatherPhone, String fatherEmail, String fatherAddress, String fatherOccupation, String studentMotherName, String motherNationalIdentificationNumber, String motherEmail, String motherAddress, String motherOccupation, String motherPhone) {
+    public StudentInformation(long id, String studentFirstName,String studentPhoto, String studentMidName, String studentLastName, String studentDateOfBirth, String studentNationalIdentificationNumberNIN, String studentNationalIdentificationCardNumber, String studentGender, String studentClass, String studentHealthRecord, String studentPhoneNumber, String studentHomeAddress, String studentSubCounty, String studentDistrict) {
         this.id = id;
         this.studentFirstName = studentFirstName;
         this.studentMidName = studentMidName;
@@ -54,25 +44,15 @@ public class StudentInformation {
         this.studentDateOfBirth = studentDateOfBirth;
         this.studentNationalIdentificationNumberNIN = studentNationalIdentificationNumberNIN;
         this.studentNationalIdentificationCardNumber = studentNationalIdentificationCardNumber;
-        this.studentSex = studentSex;
-        this.studentLevelOfEducation = studentLevelOfEducation;
+        this.studentGender = studentGender;
+        this.studentClass = studentClass;
+        this.studentPhoto = studentPhoto;
         this.studentHealthRecord = studentHealthRecord;
         this.studentPhoneNumber = studentPhoneNumber;
         this.studentHomeAddress = studentHomeAddress;
         this.studentSubCounty = studentSubCounty;
         this.studentDistrict = studentDistrict;
-        this.studentFatherName = studentFatherName;
-        this.fatherNationalIdentificationNumber = fatherNationalIdentificationNumber;
-        this.fatherPhone = fatherPhone;
-        this.fatherEmail = fatherEmail;
-        this.fatherAddress = fatherAddress;
-        this.fatherOccupation = fatherOccupation;
-        this.studentMotherName = studentMotherName;
-        this.motherNationalIdentificationNumber = motherNationalIdentificationNumber;
-        this.motherEmail = motherEmail;
-        this.motherAddress = motherAddress;
-        this.motherOccupation = motherOccupation;
-        this.motherPhone = motherPhone;
+
     }
 
     public Long getId() {
@@ -83,6 +63,13 @@ public class StudentInformation {
         this.id = id;
     }
 
+    public String getStudentPhoto() {
+        return studentPhoto;
+    }
+
+    public void setStudentPhoto(String studentPhoto) {
+        this.studentPhoto = studentPhoto;
+    }
 
     public String getStudentFirstName() {
         return studentFirstName;
@@ -132,20 +119,20 @@ public class StudentInformation {
         this.studentNationalIdentificationCardNumber = studentNationalIdentificationCardNumber;
     }
 
-    public String getStudentSex() {
-        return studentSex;
+    public String getStudentGender() {
+        return studentGender;
     }
 
-    public void setStudentSex(String studentSex) {
-        this.studentSex = studentSex;
+    public void setStudentGender(String studentGender) {
+        this.studentGender = studentGender;
     }
 
-    public String getStudentLevelOfEducation() {
-        return studentLevelOfEducation;
+    public String getStudentClass() {
+        return studentClass;
     }
 
-    public void setStudentLevelOfEducation(String studentLevelOfEducation) {
-        this.studentLevelOfEducation = studentLevelOfEducation;
+    public void setStudentClass(String studentClass) {
+        this.studentClass = studentClass;
     }
 
     public String getStudentHealthRecord() {
@@ -188,105 +175,16 @@ public class StudentInformation {
         this.studentDistrict = studentDistrict;
     }
 
-    public String getStudentFatherName() {
-        return studentFatherName;
-    }
 
-    public void setStudentFatherName(String studentFatherName) {
-        this.studentFatherName = studentFatherName;
-    }
-
-    public String getFatherNationalIdentificationNumber() {
-        return fatherNationalIdentificationNumber;
-    }
-
-    public void setFatherNationalIdentificationNumber(String fatherNationalIdentificationNumber) {
-        this.fatherNationalIdentificationNumber = fatherNationalIdentificationNumber;
-    }
-
-    public String getFatherPhone() {
-        return fatherPhone;
-    }
-
-    public void setFatherPhone(String fatherPhone) {
-        this.fatherPhone = fatherPhone;
-    }
-
-    public String getFatherEmail() {
-        return fatherEmail;
-    }
-
-    public void setFatherEmail(String fatherEmail) {
-        this.fatherEmail = fatherEmail;
-    }
-
-    public String getFatherAddress() {
-        return fatherAddress;
-    }
-
-    public void setFatherAddress(String fatherAddress) {
-        this.fatherAddress = fatherAddress;
-    }
-
-    public String getFatherOccupation() {
-        return fatherOccupation;
-    }
-
-    public void setFatherOccupation(String fatherOccupation) {
-        this.fatherOccupation = fatherOccupation;
-    }
-
-    public String getStudentMotherName() {
-        return studentMotherName;
-    }
-
-    public void setStudentMotherName(String studentMotherName) {
-        this.studentMotherName = studentMotherName;
-    }
-
-    public String getMotherNationalIdentificationNumber() {
-        return motherNationalIdentificationNumber;
-    }
-
-    public void setMotherNationalIdentificationNumber(String motherNationalIdentificationNumber) {
-        this.motherNationalIdentificationNumber = motherNationalIdentificationNumber;
-    }
-
-    public String getMotherEmail() {
-        return motherEmail;
-    }
-
-    public void setMotherEmail(String motherEmail) {
-        this.motherEmail = motherEmail;
-    }
-
-    public String getMotherAddress() {
-        return motherAddress;
-    }
-
-    public void setMotherAddress(String motherAddress) {
-        this.motherAddress = motherAddress;
-    }
-
-    public String getMotherOccupation() {
-        return motherOccupation;
-    }
-
-    public void setMotherOccupation(String motherOccupation) {
-        this.motherOccupation = motherOccupation;
-    }
-
-    public String getMotherPhone() {
-        return motherPhone;
-    }
-
-    public void setMotherPhone(String motherPhone) {
-        this.motherPhone = motherPhone;
-    }
-
-    @OneToMany (mappedBy = "studentInformation",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "studentInformation", cascade = CascadeType.ALL)
     private List<Address> addressList;
-     @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "classroom_id", referencedColumnName = "id")
-   private Classroom classroom;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "classroom_id", referencedColumnName = "id")
+    private Classroom classroom;
+
+    @Column(name = "totalFees")
+    private double totalFees = 0;
+
+    @Column(name = "Balance")
+    private double feesBalance;
 }
