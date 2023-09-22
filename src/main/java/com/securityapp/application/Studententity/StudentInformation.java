@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 import java.util.List;
 
 
+
 @Entity
 @Table(name = "Student")
 public class StudentInformation {

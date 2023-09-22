@@ -7,6 +7,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Transient;
 import lombok.Data;
 
+import java.util.Optional;
+
 @Entity
 @Data
 
@@ -44,6 +46,11 @@ public class Parent {
 
     @Column(name = "photos")
     private String parentPhotos;
+
+    public static Optional<Object> findById(long id) {
+
+        return null;
+    }
 
     @Transient
     public String getPhotosImagePath() {
