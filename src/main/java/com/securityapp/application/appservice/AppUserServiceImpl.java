@@ -7,6 +7,7 @@ import com.securityapp.application.apprepo.AppUserRepo;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class AppUserServiceImpl implements AppUserService {
+    private final static String USER_NOT_FOUND = "user with email %s not found";
     private final AppUserRepo appUserRepo;
     private final AppRoleRepo appRoleRepo;
 
@@ -43,6 +45,12 @@ public class AppUserServiceImpl implements AppUserService {
     public AppUser getAppUser(String username) {
         log.info("get app user {}", username);
         return appUserRepo.findByUsername(username);
+    }
+    public AppUser loadAppUserByUserName(String email){
+        throw UsernameNotFoundException {
+            return appUserRepo.findByEmail(email).OrElseThrow(()->
+                    new UsernameNotFoundException(String.format(USER_NOT_FOUND)));
+        }
     }
 
     @Override

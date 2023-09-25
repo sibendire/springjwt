@@ -37,7 +37,20 @@ public class StudentInformation {
     public StudentInformation() {
     }
 
-    public StudentInformation(long id, String studentFirstName,String studentPhoto, String studentMidName, String studentLastName, String studentDateOfBirth, String studentNationalIdentificationNumberNIN, String studentNationalIdentificationCardNumber, String studentGender, String studentClass, String studentHealthRecord, String studentPhoneNumber, String studentHomeAddress, String studentSubCounty, String studentDistrict) {
+    public StudentInformation(long id, String studentFirstName,
+                              String studentPhoto,
+                              String studentMidName,
+                              String studentLastName,
+                              String studentDateOfBirth,
+                              String studentNationalIdentificationNumberNIN,
+                              String studentNationalIdentificationCardNumber,
+                              String studentGender,
+                              String studentClass,
+                              String studentHealthRecord,
+                              String studentPhoneNumber,
+                              String studentHomeAddress,
+                              String studentSubCounty,
+                              String studentDistrict) {
         this.id = id;
         this.studentFirstName = studentFirstName;
         this.studentMidName = studentMidName;
